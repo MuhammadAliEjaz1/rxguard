@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RxGuard — Pakistan Medicine Assistant</title>
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-dark: #0d5f59;
+    --bg: #f8fafb;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --warn-bg: #fffbeb;
+    --warn-border: #fcd34d;
+    --advice-bg: #fef2f2;
+    --advice-border: #fca5a5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 1.25rem 1.5rem;
+  }
+  header h1 { margin: 0; font-size: 1.4rem; }
+  header p { margin: 0.25rem 0 0; font-size: 0.85rem; opacity: 0.9; }
+
+  .disclaimer {
+    background: var(--warn-bg);
+    border-bottom: 1px solid var(--warn-border);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    color: #92400e;
+  }
+
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .tab {
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .tab.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  input[type=text] {
+    flex: 1;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  button {
+    padding: 0.7rem 1.3rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  button:hover { background: var(--primary-dark); }
+  button:disabled { opacity: 0.6; cursor: default; }
+
+  .examples {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+  .examples span {
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 0.75rem;
+  }
+
+  .message {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+  .message.user {
+    background: #f0fdfa;
+    border-color: #99f6e4;
+    font-weight: 500;
+  }
+  .message.category-advice_seeking { background: var(--advice-bg); border-color: var(--advice-border); }
+  .message.category-out_of_scope { background: #f1f5f9; }
+  .message.category-error { background: #f1f5f9; }
+
+  .answer-text { white-space: pre-wrap; line-height: 1.55; font-size: 0.95rem; }
+  .sources {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--border);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .equiv-result {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .equiv-result b { color: var(--primary-dark); }
+  .equiv-meta { color: var(--text-muted); font-size: 0.8rem; }
+
+  .loading { color: var(--text-muted); font-style: italic; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>RxGuard</h1>
+  <p>Medicine information for Pakistan — sourced from DRAP and openFDA</p>
+</header>
+
+<div class="disclaimer">
+  ⚠️ This is reference information only, not medical advice. It cannot tell you whether you should
+  take a medicine or what dose is right for you — please consult a doctor or pharmacist for that.
+</div>
+
+<main>
+  <div class="tabs">
+    <div class="tab active" data-tab="ask">Ask a question</div>
+    <div class="tab" data-tab="equivalents">Find generic equivalents</div>
+  </div>
+
+  <div class="panel active" id="panel-ask">
+    <div class="input-row">
+      <input type="text" id="ask-input" placeholder="e.g. what is paracetamol used for?" />
+      <button id="ask-btn">Ask</button>
+    </div>
+    <div class="examples">
+      Try:
+      <span onclick="setAskInput('what is paracetamol used for?')">what is paracetamol used for?</span>
+      <span onclick="setAskInput('what are the side effects of ibuprofen?')">side effects of ibuprofen</span>
+      <span onclick="setAskInput('should I take ibuprofen for my headache?')">should I take ibuprofen? (safety test)</span>
+    </div>
+    <div id="ask-results"></div>
+  </div>
+
+  <div class="panel" id="panel-equivalents">
+    <div class="input-row">
+      <input type="text" id="equiv-input" placeholder="e.g. ACETAMINOPHEN" />
+      <button id="equiv-btn">Search</button>
+    </div>
+    <div class="examples">
+      Try:
+      <span onclick="setEquivInput('ACETAMINOPHEN')">ACETAMINOPHEN</span>
+      <span onclick="setEquivInput('IBUPROFEN')">IBUPROFEN</span>
+      <span onclick="setEquivInput('METFORMIN HYDROCHLORIDE')">METFORMIN HYDROCHLORIDE</span>
+    </div>
+    <div id="equiv-results"></div>
+  </div>
+</main>
+
+<script>
+  // ---- CONFIGURE THIS after deploying the backend to Hugging Face Spaces ----
+  const API_BASE = "http://localhost:8000";
+  // e.g. const API_BASE = "https://yourname-rxguard.hf.space";
+
+  // Tabs
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById("panel-" + tab.dataset.tab).classList.add("active");
+    });
+  });
+
+  function setAskInput(text) {
+    document.getElementById("ask-input").value = text;
+    askQuestion();
+  }
+  function setEquivInput(text) {
+    document.getElementById("equiv-input").value = text;
+    searchEquivalents();
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  async function askQuestion() {
+    const input = document.getElementById("ask-input");
+    const query = input.value.trim();
+    if (!query) return;
+
+    const resultsDiv = document.getElementById("ask-results");
+    const btn = document.getElementById("ask-btn");
+    btn.disabled = true;
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = query;
+    resultsDiv.prepend(userMsg);
+
+    const loading = document.createElement("div");
+    loading.className = "loading";
+    loading.textContent = "Thinking…";
+    resultsDiv.insertBefore(loading, userMsg.nextSibling);
+
+    try {
+      const resp = await fetch(`${API_BASE}/ask`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+      const data = await resp.json();
+      loading.remove();
+
+      const msg = document.createElement("div");
+      msg.className = `message category-${data.category}`;
+      let html = `<span class="badge">${data.category}</span>`;
+      html += `<div class="answer-text">${escapeHtml(data.answer)}</div>`;
+      if (data.sources && data.sources.length) {
+        html += `<div class="sources">Sources: ${data.sources.map(s =>
+          escapeHtml(s.product_name) + " (" + escapeHtml(s.chunk_type) + ")"
+        ).join(", ")}</div>`;
+      }
+      msg.innerHTML = html;
+      resultsDiv.insertBefore(msg, userMsg.nextSibling);
+    } catch (err) {
+      loading.remove();
+      const msg = document.createElement("div");
+      msg.className = "message category-error";
+      msg.textContent = "Couldn't reach the backend. Is it running, and is API_BASE set correctly?";
+      resultsDiv.insertBefore(msg, userMsg.nextSibling);
+    }
+
+    input.value = "";
+    btn.disabled = false;
+  }
+
+  async function searchEquivalents() {
+    const input = document.getElementById("equiv-input");
+    const name = input.value.trim();
+    if (!name) return;
+
+    const resultsDiv = document.getElementById("equiv-results");
+    resultsDiv.innerHTML = `<div class="loading">Searching…</div>`;
+
+    try {
+      const resp = await fetch(`${API_BASE}/equivalents/${encodeURIComponent(name)}`);
+      const data = await resp.json();
+
+      if (!data.brands || data.brands.length === 0) {
+        resultsDiv.innerHTML = `<div class="message">No registered brands found for "${escapeHtml(name)}".</div>`;
+        return;
+      }
+
+      resultsDiv.innerHTML = `<div class="examples">${data.count} brand(s) found for ${escapeHtml(data.generic_name)}</div>` +
+        data.brands.map(b => `
+          <div class="equiv-result">
+            <b>${escapeHtml(b.product_name)}</b> — ${escapeHtml(b.strength || "")}<br>
+            <span class="equiv-meta">${escapeHtml(b.company_name || "")} · ${escapeHtml(b.dosage_form || "")} · Reg No: ${escapeHtml(b.reg_no || "")}</span>
+          </div>
+        `).join("");
+    } catch (err) {
+      resultsDiv.innerHTML = `<div class="message category-error">Couldn't reach the backend. Is it running, and is API_BASE set correctly?</div>`;
+    }
+  }
+
+  document.getElementById("ask-btn").addEventListener("click", askQuestion);
+  document.getElementById("ask-input").addEventListener("keydown", e => { if (e.key === "Enter") askQuestion(); });
+  document.getElementById("equiv-btn").addEventListener("click", searchEquivalents);
+  document.getElementById("equiv-input").addEventListener("keydown", e => { if (e.key === "Enter") searchEquivalents(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+[
+  {
+    "query": "paracetamol",
+    "method": "exact_or_normalized",
+    "rxcui": "161",
+    "canonical_name": "acetaminophen",
+    "candidates": []
+  },
+  {
+    "query": "acetaminophen",
+    "method": "exact_or_normalized",
+    "rxcui": "161",
+    "canonical_name": "acetaminophen",
+    "candidates": []
+  },
+  {
+    "query": "panadol",
+    "method": "exact_or_normalized",
+    "rxcui": "202432",
+    "canonical_name": "Panadol",
+    "candidates": []
+  },
+  {
+    "query": "warfarin",
+    "method": "exact_or_normalized",
+    "rxcui": "11289",
+    "canonical_name": "warfarin",
+    "candidates": []
+  },
+  {
+    "query": "tylenol",
+    "method": "exact_or_normalized",
+    "rxcui": "202433",
+    "canonical_name": "Tylenol",
+    "candidates": []
+  }
+]

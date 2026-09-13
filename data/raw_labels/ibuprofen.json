@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-09-07",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1186
+    }
+  },
+  "results": [
+    {
+      "spl_product_data_elements": [
+        "Ibuprofen Dye Free Ibuprofen IBUPROFEN IBUPROFEN SILICON DIOXIDE STARCH, CORN HYPROMELLOSE, UNSPECIFIED ANHYDROUS LACTOSE MAGNESIUM STEARATE MICROCRYSTALLINE CELLULOSE POLYDEXTROSE POLYETHYLENE GLYCOL, UNSPECIFIED POVIDONE, UNSPECIFIED SODIUM STARCH GLYCOLATE TYPE A POTATO STEARIC ACID TRIACETIN 44;438"
+      ],
+      "active_ingredient": [
+        "Active ingredient (in each white tablet) Ibuprofen USP, 200 mg (NSAID)* *nonsteroidal anti-inflammatory drug"
+      ],
+      "purpose": [
+        "Purpose Pain reliever/fever reducer"
+      ],
+      "indications_and_usage": [
+        "Uses temporarily relieves minor aches and pains due to: headache toothache backache menstrual cramps the common cold muscular aches minor pain of arthritis temporarily reduces fever"
+      ],
+      "warnings": [
+        "Warnings Allergy alert: Ibuprofen may cause a severe allergic reaction, especially in people allergic to aspirin. Symptoms may include: rash facial swelling asthma (wheezing) hives skin reddening shock blisters If an allergic reaction occurs, stop use and seek medical help right away. Stomach bleeding warning: This product contains an NSAID, which may cause severe stomach bleeding. The chance is higher if you: take more or for a longer time than directed take a blood thinning (anticoagulant) or steroid drug have had stomach ulcers or bleeding problems have 3 or more alcoholic drinks every day while using this product are age 60 or older take other drugs containing prescription or nonprescription NSAIDs [aspirin, ibuprofen, naproxen, or others] Heart attack and stroke warning: NSAIDs, except aspirin, increase the risk of heart attack, heart failure, and stroke. These can be fatal. The risk is higher if you use more than directed or for longer than directed. Do not use if you have ever had an allergic reaction to any other pain reliever/fever reducer right before or after heart surgery Ask a doctor before use if stomach bleeding warning applies to you you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, kidney disease, asthma, or had a stroke you are taking a diuretic you have problems or serious side effects from taking pain relievers or fever reducers Ask a doctor or pharmacist before use if you are under a doctor's care for any serious condition taking aspirin for heart attack or stroke, because ibuprofen may decrease this benefit of aspirin taking any other drug When using this product take with food or milk if stomach upset occurs Stop use and ask a doctor if you experience any of the following signs of stomach bleeding: feel faint have bloody or black stools vomit blood have stomach pain that does not get better you have symptoms of heart problems or stroke: chest pain slurred speech trouble breathing leg swelling weakness in one part or side of body pain gets worse or lasts more than 10 days fever gets worse or lasts more than 3 days redness or swelling is present in the painful area any new symptoms appear If pregnant or breast-feeding, ask a health professional before use. It is especially important not to use ibuprofen at 20 weeks or later in pregnancy unless definitely directed to do so by a doctor because it may cause problems in the unborn child or complications during delivery. Keep out of reach of children. In case of overdose, get medical help or contact a Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use if you have ever had an allergic reaction to any other pain reliever/fever reducer right before or after heart surgery"
+      ],
+      "ask_doctor": [
+        "Ask a doctor before use if stomach bleeding warning applies to you you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, kidney disease, asthma, or had a stroke you are taking a diuretic you have problems or serious side effects from taking pain relievers or fever reducers"
+      ],
+      "ask_doctor_or_pharmacist": [
+        "Ask a doctor or pharmacist before use if you are under a doctor's care for any serious condition taking aspirin for heart attack or stroke, because ibuprofen may decrease this benefit of aspirin taking any other drug"
+      ],
+      "when_using": [
+        "When using this product take with food or milk if stomach upset occurs"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if you experience any of the following signs of stomach bleeding: feel faint have bloody or black stools vomit blood have stomach pain that does not get better you have symptoms of heart problems or stroke: chest pain slurred speech trouble breathing leg swelling weakness in one part or side of body pain gets worse or lasts more than 10 days fever gets worse or lasts more than 3 days redness or swelling is present in the painful area any new symptoms appear"
+      ],
+      "pregnancy_or_breast_feeding": [
+        "If pregnant or breast-feeding, ask a health professional before use. It is especially important not to use ibuprofen at 20 weeks or later in pregnancy unless definitely directed to do so by a doctor because it may cause problems in the unborn child or complications during delivery."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. In case of overdose, get medical help or contact a Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "Directions do not take more than directed the smallest effective dose should be used adults and children 12 years and over: take 1 tablet every 4 to 6 hours while symptoms persist if pain or fever does not respond to 1 tablet, 2 tablets may be used do not exceed 6 tablets in 24 hours, unless directed by a doctor children under 12 years: ask a doctor"
+      ],
+      "storage_and_handling": [
+        "Other information store between 20\u00b0-25\u00b0C (68\u00b0-77\u00b0F) avoid excessive heat 40\u00b0C (104\u00b0F) see end flap for expiration date and lot number"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients colloidal silicon dioxide, corn starch, hypromellose, lactose anhydrous, magnesium stearate, microcrystalline cellulose, polydextrose, polyethylene glycol, povidone, sodium starch glycolate, stearic acid, triacetin"
+      ],
+      "questions": [
+        "Questions or comments? Call 1-800-426-9391 8:30 AM-4:00 PM ET, Monday-Friday"
+      ],
+      "package_label_principal_display_panel": [
+        "Principal Display Panel \u2665\ufe0eCVS\u2122 NDC 59779-438-12 IBUPROFEN Tablets USP, 200 mg Pain Reliever, Fever Reducer (NSAID) 100 COATED TABLETS Compare to Advil\u00ae active ingredient \u2020 actual size DYE FREE TAMPER EVIDENT: DO NOT USE IF IMPRINTED SAFETY SEAL UNDER CAP IS BROKEN OR MISSING \u2020 This product is not manufactured or distributed by Haleon US Holdings LLC, owner of the registered trademark Advil\u00ae. 50844 ORG122143812 Distributed by: CVS Pharmacy, Inc. One CVS Drive, Woonsocket, RI 02895 \u00a9 2025 CVS/pharmacy CVS.com\u00ae 1-800-SHOP CVS V-11112 100% money back guaranteed. CVS.com/returnpolicy CVS 44-438 CVS 44-438"
+      ],
+      "set_id": "00653b7c-7099-487e-9a01-e89781c21323",
+      "id": "4bd1345d-d116-426e-825f-bbf29381746a",
+      "effective_time": "20260429",
+      "version": "17",
+      "openfda": {
+        "application_number": [
+          "ANDA075139"
+        ],
+        "brand_name": [
+          "Ibuprofen Dye Free"
+        ],
+        "generic_name": [
+          "IBUPROFEN"
+        ],
+        "manufacturer_name": [
+          "CVS Pharmacy"
+        ],
+        "product_ndc": [
+          "59779-438"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "ORAL"
+        ],
+        "substance_name": [
+          "IBUPROFEN"
+        ],
+        "rxcui": [
+          "310965"
+        ],
+        "spl_id": [
+          "4bd1345d-d116-426e-825f-bbf29381746a"
+        ],
+        "spl_set_id": [
+          "00653b7c-7099-487e-9a01-e89781c21323"
+        ],
+        "package_ndc": [
+          "59779-438-12",
+          "59779-438-15",
+          "59779-438-13"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "nui": [
+          "N0000000160",
+          "M0001335",
+          "N0000175722"
+        ],
+        "pharm_class_moa": [
+          "Cyclooxygenase Inhibitors [MoA]"
+        ],
+        "pharm_class_cs": [
+          "Anti-Inflammatory Agents, Non-Steroidal [CS]"
+        ],
+        "pharm_class_epc": [
+          "Nonsteroidal Anti-inflammatory Drug [EPC]"
+        ],
+        "unii": [
+          "WK2XYI10QM"
+        ]
+      }
+    }
+  ]
+}

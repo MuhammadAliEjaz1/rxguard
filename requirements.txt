@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+pandas
+tqdm
+chromadb
+sentence-transformers
+fastapi
+uvicorn
+pydantic
+python-dotenv

@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+venv/
+data/raw/*.jsonl
+data/raw/*.log
+data/raw/*.txt
+*.bak
+*.prevalidation.bak
